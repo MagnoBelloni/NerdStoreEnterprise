@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NSE.Pedidos.Domain.Voucher;
+using NSE.Pedidos.Domain.Vouchers;
 
 namespace NSE.Pedidos.Infra.Data.Mappings
 {
@@ -9,6 +9,7 @@ namespace NSE.Pedidos.Infra.Data.Mappings
         public void Configure(EntityTypeBuilder<Voucher> builder)
         {
             builder.HasKey(c => c.Id);
+
 
             builder.Property(c => c.Codigo)
                 .IsRequired()

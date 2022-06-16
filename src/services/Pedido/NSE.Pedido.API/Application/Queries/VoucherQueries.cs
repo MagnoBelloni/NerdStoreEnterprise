@@ -1,5 +1,5 @@
 ﻿using NSE.Pedidos.API.Application.DTO;
-using NSE.Pedidos.Domain.Voucher;
+using NSE.Pedidos.Domain.Vouchers;
 using System.Threading.Tasks;
 
 namespace NSE.Pedidos.API.Application.Queries

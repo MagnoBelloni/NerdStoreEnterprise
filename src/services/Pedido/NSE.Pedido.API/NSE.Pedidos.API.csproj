@@ -26,10 +26,5 @@
 		<ProjectReference Include="..\NSE.Pedidos.Domain\NSE.Pedidos.Domain.csproj" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Application\Commands\" />
-    <Folder Include="Application\Events\" />
-  </ItemGroup>
-
 
 </Project>

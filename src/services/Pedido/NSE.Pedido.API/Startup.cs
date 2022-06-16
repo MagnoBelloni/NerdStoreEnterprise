@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 using NSE.Pedidos.API.Configuration;
 using NSE.WebAPI.Core.Identidade;
 
-namespace NSE.Pedido.API
+namespace NSE.Pedidos.API
 {
     public class Startup
     {

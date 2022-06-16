@@ -1,8 +1,8 @@
 ﻿using NSE.Core.DomainObjects;
-using NSE.Pedidos.Domain.Voucher.Specs;
+using NSE.Pedidos.Domain.Vouchers.Specs;
 using System;
 
-namespace NSE.Pedidos.Domain.Voucher
+namespace NSE.Pedidos.Domain.Vouchers
 {
     public class Voucher : Entity, IAggregateRoot
     {

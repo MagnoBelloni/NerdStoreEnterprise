@@ -1,13 +1,15 @@
-﻿using FluentValidation.Results;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
 using NSE.Core.Data;
 using NSE.Core.DomainObjects;
 using NSE.Core.Mediator;
 using NSE.Core.Messages;
-using NSE.Pedidos.Domain.Voucher;
-using System.Linq;
-using System.Threading.Tasks;
-
+using NSE.Pedidos.Domain;
+using NSE.Pedidos.Domain.Pedidos;
+using NSE.Pedidos.Domain.Vouchers;
 
 namespace NSE.Pedidos.Infra.Data
 {
@@ -15,17 +17,15 @@ namespace NSE.Pedidos.Infra.Data
     {
         private readonly IMediatorHandler _mediatorHandler;
 
-        public PedidosContext(DbContextOptions<PedidosContext> options)
-            : base(options)
-        {
-        }
-
-        public PedidosContext(DbContextOptions<PedidosContext> options, IMediatorHandler mediatorHandler) 
+        public PedidosContext(DbContextOptions<PedidosContext> options, IMediatorHandler mediatorHandler)
             : base(options)
         {
             _mediatorHandler = mediatorHandler;
         }
 
+
+        public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<PedidoItem> PedidoItems { get; set; }
         public DbSet<Voucher> Vouchers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -49,6 +49,20 @@ namespace NSE.Pedidos.Infra.Data
 
         public async Task<bool> Commit()
         {
+            foreach (var entry in ChangeTracker.Entries()
+                .Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Property("DataCadastro").CurrentValue = DateTime.Now;
+                }
+
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Property("DataCadastro").IsModified = false;
+                }
+            }
+
             var sucesso = await base.SaveChangesAsync() > 0;
             if (sucesso) await _mediatorHandler.PublicarEventos(this);
 
@@ -79,5 +93,4 @@ namespace NSE.Pedidos.Infra.Data
             await Task.WhenAll(tasks);
         }
     }
-
 }
