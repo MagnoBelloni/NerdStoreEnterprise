@@ -46,7 +46,7 @@ namespace NSE.WebAPI.Core.Controllers
             return CustomResponse();
         }
 
-        protected ActionResult CustomResult(ResponseResult resposta)
+        protected ActionResult CustomResponse(ResponseResult resposta)
         {
             ResponsePossuiErros(resposta);
 

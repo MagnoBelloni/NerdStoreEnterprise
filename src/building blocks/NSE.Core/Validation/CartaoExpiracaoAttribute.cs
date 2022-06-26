@@ -8,20 +8,27 @@ namespace NSE.Core.Validation
     {
         public override bool IsValid(object value)
         {
-            if (value == null)
-                return false;
-
-            var mes = value.ToString().Split('/')[0];
-            var ano = $"20{value.ToString().Split('/')[1]}";
-
-            if (int.TryParse(mes, out var month) &&
-                int.TryParse(ano, out var year))
+            try
             {
-                var d = new DateTime(year, month, 1);
-                return d > DateTime.UtcNow;
-            }
+                if (value == null)
+                    return false;
 
-            return false;
+                var mes = value.ToString().Split('/')[0];
+                var ano = $"20{value.ToString().Split('/')[1]}";
+
+                if (int.TryParse(mes, out var month) &&
+                    int.TryParse(ano, out var year))
+                {
+                    var d = new DateTime(year, month, 1);
+                    return d > DateTime.UtcNow;
+                }
+
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

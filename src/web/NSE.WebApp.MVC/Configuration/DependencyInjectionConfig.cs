@@ -36,14 +36,27 @@ namespace NSE.WebApp.MVC.Configuration
                 .AddTransientHttpErrorPolicy(
                     p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
 
-            services.AddHttpClient("Refit", options =>
-            {
-                options.BaseAddress = new System.Uri(configuration.GetSection("CatalogoUrl").Value);
-            })
-            .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>()
-            .AddTypedClient(Refit.RestService.For<ICatalogoServiceRefit>)
-            .AddPolicyHandler(PollyExtensions.EsperarTentar())
-            .AddTransientHttpErrorPolicy(p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
+
+            services.AddHttpClient<ICatalogoService, CatalogoService>()
+                .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>()
+                .AddPolicyHandler(PollyExtensions.EsperarTentar())
+                .AddTransientHttpErrorPolicy(
+                    p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
+
+            //services.AddHttpClient("Refit", options =>
+            //{
+            //    options.BaseAddress = new System.Uri(configuration.GetSection("CatalogoUrl").Value);
+            //})
+            //.AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>()
+            //.AddTypedClient(Refit.RestService.For<ICatalogoServiceRefit>)
+            //.AddPolicyHandler(PollyExtensions.EsperarTentar())
+            //.AddTransientHttpErrorPolicy(p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
+
+            services.AddHttpClient<IClienteService, ClienteService>()
+               .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>()
+               .AddPolicyHandler(PollyExtensions.EsperarTentar())
+               .AddTransientHttpErrorPolicy(
+                   p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
             #endregion
         }
     }

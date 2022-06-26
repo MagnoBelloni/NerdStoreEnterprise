@@ -50,6 +50,9 @@ namespace NSE.Identidade.API.Controllers
             };
 
             var result = await _userManager.CreateAsync(user, usuarioRegistro.Senha);
+            
+            var defaultClaim = new Claim("Catalogo", "Ler");
+            await _userManager.AddClaimAsync(user, defaultClaim);
 
             if (result.Succeeded)
             {

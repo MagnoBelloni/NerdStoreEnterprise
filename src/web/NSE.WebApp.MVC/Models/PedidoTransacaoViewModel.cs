@@ -27,6 +27,7 @@ namespace NSE.WebApp.MVC.Models
         #region Cartão
 
         [Required(ErrorMessage = "Informe o número do cartão")]
+        [CreditCard(ErrorMessage = "Cartão em formato inválido")]
         [DisplayName("Número do Cartão")]
         public string NumeroCartao { get; set; }
 
