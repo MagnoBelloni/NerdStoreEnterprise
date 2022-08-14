@@ -15,11 +15,12 @@ namespace NSE.Pagamentos.API.Services
         private readonly IMessageBus _bus;
         private readonly IServiceProvider _serviceProvider;
 
-        public PagamentoIntegrationHandler(IMessageBus bus,
-            IServiceProvider serviceProvider)
+        public PagamentoIntegrationHandler(
+                            IServiceProvider serviceProvider,
+                            IMessageBus bus)
         {
-            _bus = bus;
             _serviceProvider = serviceProvider;
+            _bus = bus;
         }
 
         private void SetResponder()

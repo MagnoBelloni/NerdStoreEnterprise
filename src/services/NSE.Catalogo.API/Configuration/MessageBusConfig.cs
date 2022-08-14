@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NSE.Catalogo.API.Services;
 using NSE.Core.Utils;
 using NSE.MessageBus;
-using NSE.Pedidos.API.Services;
 
-namespace NSE.Pedidos.API.Configuration
+namespace NSE.Catalogo.API.Configuration
 {
     public static class MessageBusConfig
     {
@@ -12,8 +12,7 @@ namespace NSE.Pedidos.API.Configuration
             IConfiguration configuration)
         {
             services.AddMessageBus(configuration.GetMessageQueueConnection("MessageBus"))
-                .AddHostedService<PedidoOrquestradorIntegrationHandler>()
-                .AddHostedService<PedidoIntegrationHandler>();
+                .AddHostedService<CatalogoIntegrationHandler>();
         }
     }
 }

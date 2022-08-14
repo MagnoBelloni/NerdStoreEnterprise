@@ -95,7 +95,7 @@ namespace NSE.Pagamentos.NerdsPag
 
         public Task<Transaction> AuthorizeCardTransaction()
         {
-            var success = new Random().Next(2) == 0;
+            var success = true;
             Transaction transaction;
 
             if (success)
