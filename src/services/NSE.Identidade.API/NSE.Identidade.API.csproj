@@ -17,9 +17,11 @@
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.4" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.4" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.4" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.4" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.7" />
+		<PackageReference Include="NetDevPack.Security.JwtSigningCredentials.AspNetCore" Version="1.0.3" />
+		<PackageReference Include="NetDevPack.Security.JwtSigningCredentials.Store.EntityFrameworkCore" Version="1.0.3" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
 	</ItemGroup>
 
