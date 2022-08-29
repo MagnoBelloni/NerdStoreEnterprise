@@ -1,12 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NSE.Core.Messages.Integration;
 using NSE.Identidade.API.Models;
 using NSE.Identidade.API.Services;
 using NSE.MessageBus;
 using NSE.WebAPI.Core.Controllers;
+using System;
+using System.Threading.Tasks;
 
 namespace NSE.Identidade.API.Controllers
 {

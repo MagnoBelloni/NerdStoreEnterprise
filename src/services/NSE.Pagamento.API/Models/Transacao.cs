@@ -1,5 +1,5 @@
-﻿using System;
-using NSE.Core.DomainObjects;
+﻿using NSE.Core.DomainObjects;
+using System;
 
 namespace NSE.Pagamentos.API.Models
 {

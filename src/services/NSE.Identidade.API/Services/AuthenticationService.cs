@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -12,8 +6,13 @@ using NetDevPack.Security.JwtSigningCredentials.Interfaces;
 using NSE.Identidade.API.Data;
 using NSE.Identidade.API.Extensions;
 using NSE.Identidade.API.Models;
-using NSE.WebAPI.Core.Identidade;
 using NSE.WebAPI.Core.Usuario;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace NSE.Identidade.API.Services
 {

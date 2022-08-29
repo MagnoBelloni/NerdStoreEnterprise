@@ -1,15 +1,14 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentValidation.Results;
+﻿using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
 using NSE.Core.Data;
 using NSE.Core.DomainObjects;
 using NSE.Core.Mediator;
 using NSE.Core.Messages;
-using NSE.Pedidos.Domain;
 using NSE.Pedidos.Domain.Pedidos;
 using NSE.Pedidos.Domain.Vouchers;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace NSE.Pedidos.Infra.Data
 {
@@ -86,7 +85,8 @@ namespace NSE.Pedidos.Infra.Data
                 .ForEach(entity => entity.Entity.LimparEventos());
 
             var tasks = domainEvents
-                .Select(async (domainEvent) => {
+                .Select(async (domainEvent) =>
+                {
                     await mediator.PublicarEvento(domainEvent);
                 });
 

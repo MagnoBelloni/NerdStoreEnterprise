@@ -1,12 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentValidation.Results;
+﻿using FluentValidation.Results;
 using NSE.Core.DomainObjects;
 using NSE.Core.Messages.Integration;
 using NSE.Pagamentos.API.Facade;
 using NSE.Pagamentos.API.Models;
-using NSE.Pagamentos.Facade;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace NSE.Pagamentos.API.Services
 {

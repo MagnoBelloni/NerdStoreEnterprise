@@ -1,7 +1,7 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace NSE.Pedidos.API.Configuration
 {
@@ -15,8 +15,8 @@ namespace NSE.Pedidos.API.Configuration
                 {
                     Title = "NerdStore Enterprise Pedidos API",
                     Description = "Esta API faz parte do curso ASP.NET Core Enterprise Applications.",
-                    Contact = new OpenApiContact() {Name = "Magno Belloni", Email = "bellonidesouza6@gmail.com"},
-                    License = new OpenApiLicense() {Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT")}
+                    Contact = new OpenApiContact() { Name = "Magno Belloni", Email = "bellonidesouza6@gmail.com" },
+                    License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
                 });
 
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

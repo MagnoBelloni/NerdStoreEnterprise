@@ -77,7 +77,7 @@ namespace NSE.Bff.Compras.Controllers
         public async Task<IActionResult> RemoverItemCarrinho(Guid produtoId)
         {
             var produto = await _catalogoService.ObterPorId(produtoId);
-            if(produto == null)
+            if (produto == null)
             {
                 AdicionarErroProcessamento("Produto inexistente!");
                 return CustomResponse();

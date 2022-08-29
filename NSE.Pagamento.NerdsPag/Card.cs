@@ -29,7 +29,7 @@ namespace NSE.Pagamentos.NerdsPag
 
             using var msEncrypt = new MemoryStream();
             using var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write);
-            
+
             using (var swEncrypt = new StreamWriter(csEncrypt))
             {
                 swEncrypt.Write(CardHolderName + CardNumber + CardExpirationDate + CardCvv);

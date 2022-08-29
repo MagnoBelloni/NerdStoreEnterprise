@@ -1,10 +1,9 @@
-﻿using System.Net.Http;
+﻿using NSE.Core.Communication;
+using NSE.WebApp.MVC.Extensions;
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using NSE.Core.Communication;
-using NSE.WebApp.MVC.Extensions;
-using NSE.WebApp.MVC.Models;
 
 namespace NSE.WebApp.MVC.Services
 {

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using NSE.Core.Messages;
+using System;
 using System.Collections.Generic;
-using NSE.Core.Messages;
 
 namespace NSE.Core.DomainObjects
 {

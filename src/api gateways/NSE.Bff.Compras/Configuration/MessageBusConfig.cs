@@ -8,7 +8,7 @@ namespace NSE.Bff.Compras.Configuration.Configuration
         public static void AddMessageBusConfiguration(this IServiceCollection services,
             IConfiguration configuration)
         {
-            
+
         }
     }
 }

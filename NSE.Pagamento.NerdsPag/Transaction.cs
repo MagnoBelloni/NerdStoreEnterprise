@@ -4,14 +4,14 @@ using System.Threading.Tasks;
 
 namespace NSE.Pagamentos.NerdsPag
 {
-   public class Transaction
+    public class Transaction
     {
         public Transaction(NerdsPagService nerdsPagService)
         {
             NerdsPagService = nerdsPagService;
         }
 
-        protected Transaction(){}
+        protected Transaction() { }
 
         private readonly NerdsPagService NerdsPagService;
 
@@ -133,16 +133,16 @@ namespace NSE.Pagamentos.NerdsPag
         public Task<Transaction> CaptureCardTransaction()
         {
             var transaction = new Transaction
-                {
-                    AuthorizationCode = GetGenericCode(),
-                    CardBrand = CardBrand,
-                    TransactionDate = DateTime.Now,
-                    Cost = 0,
-                    Amount = Amount,
-                    Status = TransactionStatus.Paid,
-                    Tid = Tid,
-                    Nsu = Nsu
-                };
+            {
+                AuthorizationCode = GetGenericCode(),
+                CardBrand = CardBrand,
+                TransactionDate = DateTime.Now,
+                Cost = 0,
+                Amount = Amount,
+                Status = TransactionStatus.Paid,
+                Tid = Tid,
+                Nsu = Nsu
+            };
 
             return Task.FromResult(transaction);
         }

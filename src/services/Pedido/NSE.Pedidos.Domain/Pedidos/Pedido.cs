@@ -1,14 +1,14 @@
-﻿using System;
+﻿using NSE.Core.DomainObjects;
+using NSE.Pedidos.Domain.Vouchers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using NSE.Core.DomainObjects;
-using NSE.Pedidos.Domain.Vouchers;
 
 namespace NSE.Pedidos.Domain.Pedidos
 {
     public class Pedido : Entity, IAggregateRoot
     {
-        public Pedido(Guid clienteId, decimal valorTotal, List<PedidoItem> pedidoItems, 
+        public Pedido(Guid clienteId, decimal valorTotal, List<PedidoItem> pedidoItems,
             bool voucherUtilizado = false, decimal desconto = 0, Guid? voucherId = null)
         {
             ClienteId = clienteId;
@@ -34,7 +34,7 @@ namespace NSE.Pedidos.Domain.Pedidos
 
         private readonly List<PedidoItem> _pedidoItems;
         public IReadOnlyCollection<PedidoItem> PedidoItems => _pedidoItems;
-        
+
         public Endereco Endereco { get; private set; }
 
         // EF Rel.

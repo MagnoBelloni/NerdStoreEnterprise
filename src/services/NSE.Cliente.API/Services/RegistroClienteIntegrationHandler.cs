@@ -1,13 +1,13 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using FluentValidation.Results;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using NSE.Clientes.API.Application.Commands;
+using NSE.Core.Mediator;
 using NSE.Core.Messages.Integration;
-using FluentValidation.Results;
+using NSE.MessageBus;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using NSE.Clientes.API.Application.Commands;
-using System;
-using Microsoft.Extensions.DependencyInjection;
-using NSE.Core.Mediator;
-using NSE.MessageBus;
 
 namespace NSE.Clientes.API.Services
 {

@@ -10,7 +10,7 @@ namespace NSE.WebApp.MVC.Services
     {
         [Get("/catalogo/produtos/{id}")]
         Task<ProdutoViewModel> ObterPorId(Guid id);
-        
+
         [Get("/catalogo/produtos/")]
         Task<IEnumerable<ProdutoViewModel>> ObterTodos();
     }

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using FluentValidation;
+﻿using FluentValidation;
 using NSE.Core.Messages;
 using NSE.Pedidos.API.Application.DTO;
+using System;
+using System.Collections.Generic;
 
 namespace NSE.Pedidos.API.Application.Commands
 {

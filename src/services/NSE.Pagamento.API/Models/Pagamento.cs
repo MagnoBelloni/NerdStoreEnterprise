@@ -1,6 +1,6 @@
-﻿using System;
+﻿using NSE.Core.DomainObjects;
+using System;
 using System.Collections.Generic;
-using NSE.Core.DomainObjects;
 
 namespace NSE.Pagamentos.API.Models
 {

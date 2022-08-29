@@ -1,5 +1,5 @@
-﻿using System;
-using NSE.Pedidos.Domain.Pedidos;
+﻿using NSE.Pedidos.Domain.Pedidos;
+using System;
 
 namespace NSE.Pedidos.API.Application.DTO
 {

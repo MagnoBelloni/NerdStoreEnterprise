@@ -1,6 +1,6 @@
-﻿using System;
+﻿using NSE.Pedidos.Domain.Pedidos;
+using System;
 using System.Collections.Generic;
-using NSE.Pedidos.Domain.Pedidos;
 
 namespace NSE.Pedidos.API.Application.DTO
 {

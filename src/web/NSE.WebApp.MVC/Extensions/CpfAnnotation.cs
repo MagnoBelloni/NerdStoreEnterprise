@@ -1,9 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.Extensions.Localization;
 using NSE.Core.DomainObjects;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace NSE.WebApp.MVC.Extensions
 {
@@ -41,7 +41,7 @@ namespace NSE.WebApp.MVC.Extensions
     public class CpfValidationAttributeAdapterProvider : IValidationAttributeAdapterProvider
     {
         private readonly IValidationAttributeAdapterProvider _baseProvider = new ValidationAttributeAdapterProvider();
-        
+
         public IAttributeAdapter GetAttributeAdapter(ValidationAttribute attribute, IStringLocalizer stringLocalizer)
         {
             if (attribute is CpfAttribute CpfAttribute)

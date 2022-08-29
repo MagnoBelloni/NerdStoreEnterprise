@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Http;
 
 namespace NSE.WebAPI.Core.Usuario
 {

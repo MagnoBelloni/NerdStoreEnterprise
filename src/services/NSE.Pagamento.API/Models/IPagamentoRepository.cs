@@ -1,7 +1,7 @@
-﻿using System;
+﻿using NSE.Core.Data;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NSE.Core.Data;
 
 namespace NSE.Pagamentos.API.Models
 {

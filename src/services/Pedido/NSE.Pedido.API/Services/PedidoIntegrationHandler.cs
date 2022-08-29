@@ -1,12 +1,12 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using NSE.Core.DomainObjects;
 using NSE.Core.Messages.Integration;
 using NSE.MessageBus;
 using NSE.Pedidos.Domain.Pedidos;
-using System.Threading.Tasks;
-using System.Threading;
 using System;
-using Microsoft.Extensions.DependencyInjection;
-using NSE.Core.DomainObjects;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace NSE.Pedidos.API.Services
 {

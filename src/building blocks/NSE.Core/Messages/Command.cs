@@ -1,6 +1,6 @@
-﻿using System;
-using FluentValidation.Results;
+﻿using FluentValidation.Results;
 using MediatR;
+using System;
 
 namespace NSE.Core.Messages
 {

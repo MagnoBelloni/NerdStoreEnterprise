@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Net.Http;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
 using NSE.Core.Communication;
 using NSE.WebAPI.Core.Usuario;
 using NSE.WebApp.MVC.Extensions;
 using NSE.WebApp.MVC.Models;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace NSE.WebApp.MVC.Services
 {

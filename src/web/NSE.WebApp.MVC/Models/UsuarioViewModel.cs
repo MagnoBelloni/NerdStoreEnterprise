@@ -19,7 +19,7 @@ namespace NSE.WebApp.MVC.Models
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [EmailAddress(ErrorMessage = "O campo {0} está em formato inválido")]
-        [DisplayName("E-mail")] 
+        [DisplayName("E-mail")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
