@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using NSE.Core.Communication;
+using NSE.WebApp.MVC.Extensions;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using NSE.Core.Communication;
-using NSE.WebApp.MVC.Extensions;
 
 namespace NSE.WebApp.MVC.Models
 {
@@ -45,6 +45,7 @@ namespace NSE.WebApp.MVC.Models
     public class UsuarioRespostaLogin
     {
         public string AccessToken { get; set; }
+        public string RefreshToken { get; set; }
         public double ExpiresIn { get; set; }
         public UsuarioToken UsuarioToken { get; set; }
         public ResponseResult ResponseResult { get; set; }
