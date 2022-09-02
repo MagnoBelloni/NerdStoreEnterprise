@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 using NSE.Bff.Compras.Models;
 using NSE.Bff.Compras.Services;
 using NSE.Bff.Compras.Services.gRPC;
 using NSE.WebAPI.Core.Controllers;
+using NSE.WebAPI.Core.Usuario;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,16 +19,22 @@ namespace NSE.Bff.Compras.Controllers
         private readonly ICarrinhoGrpcService _carrinhoGrpcService;
         private readonly ICatalogoService _catalogoService;
         private readonly IPedidoService _pedidoService;
+        private readonly IDistributedCache _cache;
+        private readonly IAspNetUser _user;
 
         public CarrinhoController(ICarrinhoService carrinhoService,
             ICatalogoService catalogoService,
             IPedidoService pedidoService,
-            ICarrinhoGrpcService carrinhoGrpcService)
+            ICarrinhoGrpcService carrinhoGrpcService,
+            IDistributedCache cache,
+            IAspNetUser user)
         {
             _carrinhoService = carrinhoService;
             _catalogoService = catalogoService;
             _pedidoService = pedidoService;
             _carrinhoGrpcService = carrinhoGrpcService;
+            _cache = cache;
+            _user = user;
         }
 
         [HttpGet]
@@ -40,8 +48,17 @@ namespace NSE.Bff.Compras.Controllers
         [Route("compras/carrinho-quantidade")]
         public async Task<int> ObterQuantidadeCarrinho()
         {
-            var quantidade = await _carrinhoGrpcService.ObterCarrinho();
-            return quantidade?.Itens.Sum(i => i.Quantidade) ?? 0;
+            var nomeCache = $"Quantidade_{_user.ObterUserId()}";
+            var quantidade = await _cache.GetStringAsync(nomeCache);
+            if(quantidade == null)
+            {
+                var carrinho = await _carrinhoGrpcService.ObterCarrinho();
+                quantidade = carrinho?.Itens.Sum(i => i.Quantidade).ToString() ?? "0";
+
+                await _cache.SetStringAsync(nomeCache, quantidade);
+            }
+
+            return int.Parse(quantidade);
         }
 
         [HttpPost]
@@ -59,6 +76,9 @@ namespace NSE.Bff.Compras.Controllers
 
             var resposta = await _carrinhoService.AdicionarItemCarrinho(itemProduto);
 
+            var nomeCache = $"Quantidade_{_user.ObterUserId()}";
+            await _cache.RemoveAsync(nomeCache);
+
             return CustomResponse(resposta);
         }
 
@@ -72,6 +92,9 @@ namespace NSE.Bff.Compras.Controllers
             if (!OperacaoValida()) return CustomResponse();
 
             var resposta = await _carrinhoService.AtualizarItemCarrinho(produtoId, itemProduto);
+
+            var nomeCache = $"Quantidade_{_user.ObterUserId()}";
+            await _cache.RemoveAsync(nomeCache);
 
             return CustomResponse(resposta);
         }
@@ -88,6 +111,9 @@ namespace NSE.Bff.Compras.Controllers
             }
 
             var resposta = await _carrinhoService.RemoverItemCarrinho(produtoId);
+
+            var nomeCache = $"Quantidade_{_user.ObterUserId()}";
+            await _cache.RemoveAsync(nomeCache);
 
             return CustomResponse(resposta);
         }

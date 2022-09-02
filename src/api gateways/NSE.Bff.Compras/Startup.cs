@@ -42,6 +42,8 @@ namespace NSE.Bff.Compras
             services.ConfigureGrpcServices(Configuration);
 
             services.AddMessageBusConfiguration(Configuration);
+
+            services.AddRedis(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
