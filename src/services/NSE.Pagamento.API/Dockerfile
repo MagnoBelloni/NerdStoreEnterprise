@@ -7,16 +7,20 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["src/services/NSE.Pagamento.API/NSE.Pagamento.API.csproj", "src/services/NSE.Pagamento.API/"]
-RUN dotnet restore "src/services/NSE.Pagamento.API/NSE.Pagamento.API.csproj"
+COPY ["./services/NSE.Pagamento.API/NSE.Pagamentos.API.csproj", "services/NSE.Pagamento.API/"]
+COPY ["./building blocks/NSE.Core/NSE.Core.csproj", "building blocks/NSE.WebAPI.Core/"]
+COPY ["./building blocks/NSE.WebAPI.Core/NSE.WebAPI.Core.csproj", "building blocks/NSE.WebAPI.Core/"]
+COPY ["./building blocks/NSE.MessageBus/NSE.MessageBus.csproj", "building blocks/NSE.MessageBus/"]
+
+RUN dotnet restore "services/NSE.Pagamento.API/NSE.Pagamentos.API.csproj"
 COPY . .
-WORKDIR "/src/src/services/NSE.Pagamento.API"
-RUN dotnet build "NSE.Pagamento.API.csproj" -c Release -o /app/build
+WORKDIR "services/NSE.Pagamento.API"
+RUN dotnet build "NSE.Pagamentos.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "NSE.Pagamento.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "NSE.Pagamentos.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "NSE.Pagamento.API.dll"]
+ENTRYPOINT ["dotnet", "NSE.Pagamentos.API.dll"]
