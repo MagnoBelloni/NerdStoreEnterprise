@@ -21,7 +21,7 @@ Você precisa das seguintes tecnologias instaladas na sua máquina:
 ## Arquitetura
 
 Diagrama de fluxo da aplicação.
-![Arquitetura](https://github.com/MagnoBelloni/NerdStoreEnterprise/blob/main/images/arquitetura.png)
+![Arquitetura](https://github.com/MagnoBelloni/NerdStoreEnterprise/blob/main/images/arquitetura.jpg)
 
 ## Construído com:
 
