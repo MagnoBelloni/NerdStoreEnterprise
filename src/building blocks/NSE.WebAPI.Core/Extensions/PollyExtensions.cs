@@ -27,5 +27,4 @@ namespace NSE.WebAPI.Core.Extensions
             return retry;
         }
     }
-
 }

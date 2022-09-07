@@ -18,6 +18,10 @@ Você precisa das seguintes tecnologias instaladas na sua máquina:
 
 - docker-compose -f nerdstore_producao.yml up
 
+#### Ou com load balancer:
+
+- docker-compose -f nerdstore_producao.yml up --scale web-mvc=4
+
 ## Arquitetura
 
 Diagrama de fluxo da aplicação.
